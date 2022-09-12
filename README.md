@@ -11,5 +11,5 @@ Delete entries
 Search For entries  
 
 
-## YouTube video demonstration
+## YouTube video Demonstration
 https://www.youtube.com/watch?v=VygDuVDlUGs&ab_channel=JoshuaPeachey  
