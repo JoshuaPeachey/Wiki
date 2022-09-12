@@ -5,7 +5,7 @@ https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript
 
 ## Website Features
 A user can:  
-create an entry. In order to do this the user must enter the name of the entry and enter a description for the entry following the md file structure. Once the user submits the page the md contents will automatically be converted to HTML and displayed on the page.  
+Create an entry. In order to do this the user must enter the name of the entry and enter a description for the entry following the md file structure. Once the user submits the page the md contents will automatically be converted to HTML and displayed on the page.  
 Edit entries  
 Delete entries  
 Search For entries  
