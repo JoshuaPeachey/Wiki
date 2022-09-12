@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block links %}
+  <link href="{% static 'encyclopedia/createNewPage.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Wiki Edit Page
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Page</h1>
+    
+    <form action="{% url 'wiki:edit_entry' entry_name=entry_name %}" method="post">
+      {% csrf_token %}
+      {{ entry_form }}
+      <button class="btn btn-primary">Submit</button>
+    </form>
+
+    <form action="{% url 'wiki:delete_entry' entry_name=entry_name %}" method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}

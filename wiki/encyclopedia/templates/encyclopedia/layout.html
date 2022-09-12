@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, widht=device-width">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'encyclopedia/nav.css' %}" rel="stylesheet">
+        {% block links %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="row" style="margin-left:0;margin-right:0">
+            <div class="sidebar col-lg-2 col-md-3">
+                <h2>Wiki</h2>
+                <form action="{% url 'wiki:index' %}" method="get">
+                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    <submit></submit>
+                </form>
+                <div>
+                    <a href="{% url 'wiki:index' %}">Home</a>
+                </div>
+                <div>
+                    <a href="{% url 'wiki:CreateNewPage' %}">Create Page</a>
+                </div>
+                <div>
+                    <!-- <form action="{% url 'wiki:index' %}" method="get">
+                        <input type="hidden" name="random" value = "true" >
+                        <submit>Random Page</submit> -->
+                        <a href="{% url 'wiki:random' %}">Random Page</a>
+                </div>
+                <!-- NAV -->
+                {% for entry in entries %}
+                <a class="links" href="{% url 'wiki:entry_name' entry_name=entry %}">{{ entry }}</a>
+                {% endfor %}
+
+            </div>
+            <div class="main col-lg-10 col-md-9">
+                {% block body %}
+                {% endblock %}
+
+                {% if editable %}
+                <div>
+                    <a href="{% url 'wiki:edit_entry' entry_name=entry_name %}">Edit Page</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </body>
+</html>

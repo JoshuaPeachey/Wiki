@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block links %}
+  <link href="{% static 'encyclopedia/createNewPage.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Wiki New Page
+{% endblock %}
+
+{% block body %}
+    <h1>create New Page</h1>
+    
+    <form action="{% url 'wiki:CreateNewPage' %}", method="post">
+      {% csrf_token %}
+      {{ entry_form }}
+      <input type="submit">
+    </form>
+{% endblock %}
